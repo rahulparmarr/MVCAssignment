@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EventDetails>
+
+@{
+    ViewData["Title"] = "MyEvents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+ 
+
+<div class="text-center mt-5">
+    
+    @if (Model.Count() > 0)
+
+    {
+        <table id="MyEvents" class="table-bordered table table-striped" title="My Events">
+            <thead class="table-dark" id="myevents">
+                <tr>
+                    <th>My Events</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if(item.Email== (String) ViewData["email"] )
+
+
+                    {
+                        <tr>
+                            <td><a href="#">@item.Title </a> </td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+
+
+        </table>
+
+    }
+
+</div>
+       
+
+
+
+

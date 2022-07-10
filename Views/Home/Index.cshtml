@@ -1,0 +1,156 @@
+﻿@model IEnumerable<EventDetails>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=" container" style="margin-top:50px">
+    <div>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd; color:darkred">
+            Book Reading Event
+
+            <div class="navbar-expand" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="navbar navbar-light" style="background-color: #e3f2fd;">
+                        <a class="nav-link" asp-action="Login" asp-controller="Account" style="color:black">Login<span class="sr-only">(current)</span></a>
+
+                    </li>
+                    <li class="navbar navbar-light" style="background-color: #e3f2fd; ">
+                        <a class="nav-link" style="color:black" asp-action="Signup" asp-controller="Account">Register<span class="sr-only">(current)</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+
+</div>
+
+
+@*@if(Model.Count()>0)
+    {
+        <table class="table table-bordered table-striped" >
+            <thead>
+                <tr>
+                    <th>
+                        upcoming events
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td width="30%">@item.Title</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    else
+    {
+        <p>no items created</p>
+    }*@
+
+
+
+
+
+
+<div class="row">
+    <div class="col-sm-6">
+        @if (Model.Count() > 0)
+        {
+            <table id="pastEvents" class="table-bordered table table-striped" title="Past Events">
+                <thead class="table-dark" id="past">
+                    <tr>
+                        <th>Past Events</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Date < DateTime.Now && item.TypeOfEvent=="Public")
+                        {
+                            <tr>
+                                <td><a href="#" >@item.Title </a> </td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+
+
+            </table>
+
+        }
+
+
+    </div>
+
+
+
+
+    <div class="col-sm-6">
+        @if (Model.Count() > 0)
+        {
+            <table id="upcomingEvents" class="table-bordered table table-striped" title="Upcoming Events">
+                <thead class="table-dark" id="upcoming">
+                    <tr>
+                        <th>Upcoming Events</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+
+                    {
+                        if (item.Date > DateTime.Now  && item.TypeOfEvent=="Public")
+                        {
+                            <tr>
+                                <td><a href="#"> @item.Title </a> </td>
+                            </tr>
+
+                        }
+                        
+
+
+                    }
+                </tbody>
+
+
+            </table>
+
+        }
+        else
+        {
+            <p> No Upcoming Events</p>
+        }
+
+
+    </div>
+</div>
+
+
+@*<div class="col-sm-6">
+            <table id="pastEvents" class="table-bordered table table-striped" title="Past Events">
+                <thead class="table-dark"id="upcomming">
+                    <tr>
+                        <th>UpComming Events</th>
+                    </tr>
+
+                </thead>
+                <tbody id="table2">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>*@
+
+
+<script src="index.js"></script>

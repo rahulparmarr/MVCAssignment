@@ -1,0 +1,140 @@
+﻿
+
+
+@model MVCAssignment.Models.EventDetails
+
+<link rel="stylesheet" href="~/css/site.css" />
+@{
+    ViewData["Title"] = "CreateEvent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+<div class="container" style="color:crimson">
+    <h1 class="text-center" style="margin-top:30px">Create an Event</h1>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <form asp-action="CreateEvent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" id="title" class="form-control " />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group row " style="margin-top:40px ; margin-bottom:40px">
+                <label asp-for="TypeOfEvent" class="control-label col-sm-4"></label>
+                <div class="form-group">
+                    Public
+                    @Html.RadioButtonFor(model => model.TypeOfEvent, "Public")
+                    Private
+                    @Html.RadioButtonFor(model => model.TypeOfEvent, "Private")
+                </div>
+            </div>
+
+
+
+
+
+
+            <!--<div class="form-group row " style="margin-top:40px ; margin-bottom:40px" >
+            <label asp-for="TypeOfEvent" class="control-label col-sm-4"></label>
+
+            <div class="form-check  " style="margin-left:20px">
+                <input class="form-control " for="TypeOfEvent" checked type="radio" name="type" value="Public" id="public" />
+                <label class="form-check-label" for="TypeOfEvent">Public</label>
+            </div>-->
+            @*<span asp-validation-for="TypeOfEvent" class="text-danger"></span>*@
+            <!--<div class="form-check" style="margin-left:40px">
+                <input class="form-control" for="TypeOfEvent" type="radio" name="type" value="Private" id="private" />
+                <label class="form-check-label" for="TypeOfEvent">Private</label>
+            </div>-->
+            @*<span asp-validation-for="TypeOfEvent" class="text-danger"></span>*@
+            <!--</div>-->
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="InviteByEmail" class="control-label"></label>
+                <input asp-for="InviteByEmail" class="form-control" />
+                <span asp-validation-for="InviteByEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-danger" asp-action="SignedIn">Back</a>
+</div>
+
+
+
+
+
+
+<script src="~/js/index.js">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

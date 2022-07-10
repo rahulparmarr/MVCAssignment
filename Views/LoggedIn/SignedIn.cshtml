@@ -1,0 +1,128 @@
+﻿
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignedIn</title>
+</head>
+<body>
+   
+    @if(User.Identity.IsAuthenticated)
+
+    {
+    
+
+    <div class=" container" style="margin-top:50px">
+        <div>
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd; color:darkred">
+                Book Reading Event
+
+                <div class="navbar-expand" id="navbarNav">
+                   
+                    <ul class="navbar-nav">
+                        <li class="navbar navbar-light" style="background-color: #e3f2fd;">
+                            <a class="nav-link" style="color:black" href="#">My Events<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar navbar-light" style="background-color: #e3f2fd;">
+                            <a class="nav-link" style="color:black" href="#">Events Invited To<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar navbar-light" style="background-color: #e3f2fd;">
+                            <a class="nav-link" asp-action="CreateEvent" asp-controller="LoggedIn" style="color:black">Create Event<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar navbar-light" style="background-color: #e3f2fd; ">
+                            <a class="nav-link" asp-action="Logout" asp-controller="Account" style="color:black">Logout<span class="sr-only">(current)</span></a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <table id="pastEvents" class="table-bordered table table-striped" title="Past Events">
+                <thead class="table-dark" id="past">
+                    <tr>
+                        <th>Past Events</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Harry potter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Harry potter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Harry potter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Harry potter
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+        <div class="col-sm-6">
+            <table id="pastEvents" class="table-bordered table table-striped" title="Past Events">
+                <thead class="table-dark" id="upcomming">
+                    <tr>
+                        <th>UpComming Events</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Chetan bhagat
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chetan bhagat
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chetan bhagat
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Chetan bhagat
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    }
+
+</body>
+</html>
