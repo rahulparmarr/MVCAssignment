@@ -1,41 +1,35 @@
 ﻿@model IEnumerable<EventDetails>
-
 @{
-    ViewData["Title"] = "MyEvents";
+    ViewData["Title"] = "EventsInvitedTo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h1>EventsInvitedTo</h1>
 
 
 
- 
 
 <div class="text-center mt-5">
-    
+
     @if (Model.Count() > 0)
 
     {
-        <table id="MyEvents" class="table-bordered table table-striped" title="My Events">
+        <table id="EventsInvitedTo" class="table-bordered table table-striped" title="My Events">
             <thead class="table-dark" id="myevents">
                 <tr>
-                    <th>My Events</th>
+                    <th>Events you are Invited To</th>
                 </tr>
 
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    if(item.Email== (String) ViewData["email"] )
+                    if (item.InviteByEmail == (String)ViewData["email"])
 
 
                     {
                         <tr>
-                            <td> @Html.ActionLink(item.Title, "EventInfo", "EventInformation", new { title = item.Title }) </td>
-                            
-                            
-                            
-                            
-                            
+                            <td><a href="#">@item.Title </a> </td>
                         </tr>
 
                     }
@@ -48,8 +42,4 @@
     }
 
 </div>
-       
-
-
-
 

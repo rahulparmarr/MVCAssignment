@@ -30,7 +30,9 @@ namespace MVCAssignment.Controllers
 
         public IActionResult SignedIn()
         {
-            return View();
+            IEnumerable<EventDetails> objList = context.Event;
+            return View(objList);
+            
         }
 
 
@@ -48,7 +50,14 @@ namespace MVCAssignment.Controllers
         }
 
 
+        public IActionResult EventsInvitedTo()
+        {
+            ViewData["email"] = User.FindFirst(ClaimTypes.Email).Value;
 
+            IEnumerable<EventDetails> objList = context.Event;
+            return View(objList);
+            
+        }
 
 
     

@@ -1,0 +1,57 @@
+﻿@model MVCAssignment.Models.EventDetails
+@{
+    ViewData["Title"] = "EventInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="mt-5" >Event Information</h1>
+
+
+<div class="text-center mt-5">
+
+    
+
+    
+        <table id="Events" class="table-bordered table table-striped" title="My Events">
+            <thead class="table-dark" id="eventdetails">
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Start Time</th>
+                    
+                </tr>
+
+            </thead>
+            <tbody id="tablebody">
+               
+                
+
+
+
+
+                <tr>
+                    <td>@Model.Title</td>
+                    <td>@Model.Date </td>
+                    <td>@Model.Location</td>
+                    <td>@Model.StartTime</td>
+                    
+                    <td> @Html.ActionLink("Edit", "Edit", "EventInformation", new { title = Model.Title }) </td>
+                </tr>
+
+
+                
+            </tbody>
+
+
+        </table>
+
+    
+
+</div>
+@Html.ActionLink("BACK","SignedIn","LoggedIn")
+
+
+<script type="text/javascript"    src="~/js/index.js">
+    
+</script>
