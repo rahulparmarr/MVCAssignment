@@ -18,6 +18,8 @@ namespace MVCAssignment.Models
         public int StartTime { get; set; }
 
         public string TypeOfEvent { get; set; }
+
+       
         public string InviteByEmail { get; set; }
 
 

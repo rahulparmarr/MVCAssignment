@@ -24,9 +24,9 @@ namespace MVCAssignment.Models
 
 
 
-
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Please enter Password")]
-        //[RegularExpression("[5,15][!@#$%^&*()_+]",ErrorMessage ="enter atleast 5 characters with 1 special character ")]
+        [RegularExpression(@"(?=.*[a-z])(?=.*[$@$!%*?&$^$${$$}$])[A-Za-z\d$@$#-$^$=;:!%_?&${$$}$]{6,}", ErrorMessage ="Minimum 5 characters and 1 special character required")]
         public string Password { get; set; }
 
 
