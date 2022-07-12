@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220712074236_inttodateformat.cs" />
+    <Compile Remove="Migrations\20220712074236_inttodateformat.Designer.cs" />
+    <Compile Remove="Migrations\20220712074956_inttodateformat.cs" />
+    <Compile Remove="Migrations\20220712074956_inttodateformat.Designer.cs" />
+    <Compile Remove="Migrations\20220712080022_inttodate.cs" />
+    <Compile Remove="Migrations\20220712080022_inttodate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />

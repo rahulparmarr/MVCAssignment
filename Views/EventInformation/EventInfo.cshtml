@@ -19,6 +19,7 @@
                     <th>Date</th>
                     <th>Location</th>
                     <th>Start Time</th>
+                    <th>Type</th>
                     
                 </tr>
 
@@ -35,6 +36,7 @@
                     <td>@Model.Date </td>
                     <td>@Model.Location</td>
                     <td>@Model.StartTime</td>
+                    <td>@Model.TypeOfEvent</td>
                     
                     <td> @Html.ActionLink("Edit", "Edit", "EventInformation", new { title = Model.Title }) </td>
                 </tr>

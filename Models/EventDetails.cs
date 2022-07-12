@@ -15,12 +15,13 @@ namespace MVCAssignment.Models
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public string Location { get; set; }
-        public int StartTime { get; set; }
+        public int StartTime { get; set; } 
 
         public string TypeOfEvent { get; set; }
 
        
         public string InviteByEmail { get; set; }
+
 
 
         public string Email { get; set; }
