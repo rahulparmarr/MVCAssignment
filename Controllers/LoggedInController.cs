@@ -81,6 +81,7 @@ namespace MVCAssignment.Controllers
                 var d = context.Event.Where(t => t.Title == model.Title).SingleOrDefault();
                 if (d == null)
                 {
+
                     var data = new EventDetails
                     {
 
@@ -91,10 +92,14 @@ namespace MVCAssignment.Controllers
                         TypeOfEvent = model.TypeOfEvent,
                         InviteByEmail = model.InviteByEmail,
                         Email = model.Email,
+                        Duration = model.Duration,
+                        Description=model.Description,
+                        OtherDetails=model.OtherDetails,
+
+
 
 
                     };
-
 
                     context.Event.Add(data);
                     context.SaveChanges();
@@ -108,23 +113,25 @@ namespace MVCAssignment.Controllers
 
                     return RedirectToAction("SignedIn");
 
-                }
 
+
+                }
 
                 else
                 {
-                    ViewBag.create= "<script>alert('Title already Exists Please Change the Title')</script>";
+                    ViewBag.create = "<script>alert('Title already Exists Please Change the Title')</script>";
                     return View(model);
                 }
-                
-               
 
 
-                
 
-               
+
+
+
+
 
             }
+
 
             else
             {
@@ -134,18 +141,7 @@ namespace MVCAssignment.Controllers
 
 
 
-
         }
-
-
-        
-
-
-
-
-
-
-
     }
 
 

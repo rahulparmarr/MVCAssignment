@@ -20,7 +20,10 @@
                 <th>Location</th>
                 <th>Start Time</th>
                 <th>Type</th>
-                <th>Total Invited to Event</th>
+                @*<th>Total Invited to Event</th>*@
+                <th>Duration in hrs</th>
+                <th>Description</th>
+                <th>Other Details</th>
 
             </tr>
 
@@ -38,7 +41,12 @@
                 <td>@Model.Location</td>
                 <td>@Model.StartTime</td>
                 <td>@Model.TypeOfEvent</td>
-                <td>@Model.InviteByEmail</td>
+
+                @*<td>@Model.InviteByEmail.</td>*@
+
+                <td>@Model.Duration.</td>
+                <td>@Model.Description</td>
+                <td>@Model.OtherDetails</td>
 
                 <td> @Html.ActionLink("Edit", "Edit", "EventInformation", new { title = Model.Title }) </td>
             </tr>

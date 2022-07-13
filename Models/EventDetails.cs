@@ -23,14 +23,22 @@ namespace MVCAssignment.Models
 
 
         [Required]
-        public int StartTime { get; set; } 
+        public int StartTime { get; set; }
 
 
         [Required]
         public string TypeOfEvent { get; set; }
 
-        [Required]
+        
         public string InviteByEmail { get; set; }
+
+
+        public  int Duration { get; set; }
+
+
+        public string Description { get; set; }
+
+        public string OtherDetails { get; set; }
 
 
 
