@@ -4,56 +4,66 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="mt-5" >Event Information</h1>
+<h1 class="mt-5">Event Information</h1>
 
 
 <div class="text-center mt-5">
 
-    
-
-    
-        <table id="Events" class="table-bordered table table-striped" title="My Events">
-            <thead class="table-dark" id="eventdetails">
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Start Time</th>
-                    <th>Type</th>
-                    
-                </tr>
-
-            </thead>
-            <tbody id="tablebody">
-               
-                
 
 
 
+    <table id="Events" class="table-bordered table table-striped" title="My Events">
+        <thead class="table-dark" id="eventdetails">
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Start Time</th>
+                <th>Type</th>
+                <th>Total Invited to Event</th>
 
-                <tr>
-                    <td>@Model.Title</td>
-                    <td>@Model.Date </td>
-                    <td>@Model.Location</td>
-                    <td>@Model.StartTime</td>
-                    <td>@Model.TypeOfEvent</td>
-                    
-                    <td> @Html.ActionLink("Edit", "Edit", "EventInformation", new { title = Model.Title }) </td>
-                </tr>
+            </tr>
+
+        </thead>
+        <tbody id="tablebody">
 
 
-                
-            </tbody>
 
 
-        </table>
 
-    
+
+            <tr>
+                <td>@Model.Title</td>
+                <td>@Model.Date </td>
+                <td>@Model.Location</td>
+                <td>@Model.StartTime</td>
+                <td>@Model.TypeOfEvent</td>
+                <td>@Model.InviteByEmail</td>
+
+                <td> @Html.ActionLink("Edit", "Edit", "EventInformation", new { title = Model.Title }) </td>
+            </tr>
+
+
+
+        </tbody>
+
+
+    </table>
+
+
 
 </div>
-@Html.ActionLink("BACK","SignedIn","LoggedIn")
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("BACK", "SignedIn", "LoggedIn")
+}
+else
+{
+    @Html.ActionLink("BACK", "Index", "Home")
+}
 
 
-<script type="text/javascript"    src="~/js/index.js">
-    
+<script type="text/javascript" src="~/js/index.js">
+
 </script>

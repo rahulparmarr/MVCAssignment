@@ -1,5 +1,7 @@
 ﻿
-
+@using System.Security.Claims;
+@using MVCAssignment.Data;
+@using MVCAssignment.Models;
 
 @model MVCAssignment.Models.EventDetails
 
@@ -17,21 +19,34 @@
 
 
 
-
 <div class="container" style="color:crimson">
     <h1 class="text-center" style="margin-top:30px">Create an Event</h1>
 </div>
 
 
 <hr />
+
 <div class="row">
     <div class="col-md-4 offset-4">
         <form asp-action="CreateEvent">
+            
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                @Html.Raw(ViewBag.create)
+
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" id="title" class="form-control " />
                 <span asp-validation-for="Title" class="text-danger"></span>
+
+
+
+
+
+
+
+
+
+
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
@@ -60,14 +75,14 @@
 
 
             @*<div class="form-group row " style="margin-top:40px ; margin-bottom:40px">
-                <label asp-for="TypeOfEvent" class="control-label col-sm-4"></label>
-                <div class="form-group">
-                    Public
-                    @Html.RadioButtonFor(model => model.TypeOfEvent, "Public")
-                    Private
-                    @Html.RadioButtonFor(model => model.TypeOfEvent, "Private")
-                </div>
-            </div>*@
+            <label asp-for="TypeOfEvent" class="control-label col-sm-4"></label>
+            <div class="form-group">
+                Public
+                @Html.RadioButtonFor(model => model.TypeOfEvent, "Public")
+                Private
+                @Html.RadioButtonFor(model => model.TypeOfEvent, "Private")
+            </div>
+        </div>*@
 
             <div class="form-group">
                 <label asp-for="TypeOfEvent" class="control-label ">Type Of Event </label>
@@ -107,7 +122,7 @@
 
             <div class="form-group">
                 <label asp-for="InviteByEmail" class="control-label"></label>
-                <input type="email" multiple asp-for="InviteByEmail" class="form-control" />
+                <input type="email" asp-for="InviteByEmail" class="form-control "  multiple />
                 <span asp-validation-for="InviteByEmail" class="text-danger"></span>
             </div>
 
@@ -119,9 +134,21 @@
             <span asp-validation-for="InviteByEmail" class="text-danger"></span>
         </div>*@
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input type="email" asp-for="Email" class="form-control" placeholder="Enter your Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>*@
+
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+
+                @*<select >
+                <option selected="selected" value="@User.FindFirst(ClaimTypes.Email).Value" >@User.FindFirst(ClaimTypes.Email).Value</option>
+            </select>*@
+
+                <input type="hidden" value="@User.FindFirst(ClaimTypes.Email).Value" asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
@@ -131,7 +158,7 @@
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-
+        
     </div>
 </div>
 

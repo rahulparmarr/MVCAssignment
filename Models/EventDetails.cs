@@ -10,16 +10,26 @@ namespace MVCAssignment.Models
     public class EventDetails
     {
        
-
+        [Required]
         [Key]
         public string Title { get; set; }
+
+
+        [Required]
         public DateTime Date { get; set; }
+
+        [Required]
         public string Location { get; set; }
+
+
+        [Required]
         public int StartTime { get; set; } 
 
+
+        [Required]
         public string TypeOfEvent { get; set; }
 
-       
+        [Required]
         public string InviteByEmail { get; set; }
 
 

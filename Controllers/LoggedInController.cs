@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MVCAssignment.Controllers
 {
+    [Authorize]
     public class LoggedInController : Controller
     {
         private readonly ApplicationContext context;
@@ -77,33 +78,49 @@ namespace MVCAssignment.Controllers
             if (ModelState.IsValid)
             {
 
-
-                var data = new EventDetails
+                var d = context.Event.Where(t => t.Title == model.Title).SingleOrDefault();
+                if (d == null)
                 {
+                    var data = new EventDetails
+                    {
 
-                    Title = model.Title,
-                    Date = model.Date,
-                    Location = model.Location,
-                    StartTime = model.StartTime,
-                    TypeOfEvent = model.TypeOfEvent,
-                    InviteByEmail = model.InviteByEmail,
-                    Email = model.Email,
-
-
-                };
-
-
-                context.Event.Add(data);
-                context.SaveChanges();
+                        Title = model.Title,
+                        Date = model.Date,
+                        Location = model.Location,
+                        StartTime = model.StartTime,
+                        TypeOfEvent = model.TypeOfEvent,
+                        InviteByEmail = model.InviteByEmail,
+                        Email = model.Email,
 
 
+                    };
 
-                TempData["successMessage"] = "Event created successfully";
+
+                    context.Event.Add(data);
+                    context.SaveChanges();
+
+
+
+                    TempData["successMessage"] = "Event created successfully";
+
+
+
+
+                    return RedirectToAction("SignedIn");
+
+                }
+
+
+                else
+                {
+                    ViewBag.create= "<script>alert('Title already Exists Please Change the Title')</script>";
+                    return View(model);
+                }
+                
+               
+
 
                 
-
-
-                return RedirectToAction("SignedIn");
 
                
 

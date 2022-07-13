@@ -30,7 +30,15 @@
 
                     {
                         <tr>
+
+
+
+
                             <td> @Html.ActionLink(item.Title, "EventInfo", "EventInformation", new { title = item.Title }) </td>
+
+
+
+                            
                             
                             
                             
@@ -44,6 +52,7 @@
 
 
         </table>
+        <a class="btn btn-primary" asp-action="SignedIn" asp-controller="LoggedIn">Back</a>
 
     }
 

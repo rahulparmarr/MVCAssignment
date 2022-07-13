@@ -54,7 +54,7 @@ namespace MVCAssignment.Controllers
 
         {
 
-            ViewData["email"] = User.FindFirst(ClaimTypes.Email).Value;
+            //ViewData["email"] = User.FindFirst(ClaimTypes.Email).Value;
 
             context.Entry(e).State = EntityState.Modified;
             int a = context.SaveChanges();
@@ -68,7 +68,7 @@ namespace MVCAssignment.Controllers
             {
                 ViewBag.edit = "<script>alert('Event is not updated !')</script>";
             }
-            return View();
+            return View(e);
 
         }
 
